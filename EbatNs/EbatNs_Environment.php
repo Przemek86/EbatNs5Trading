@@ -29,7 +29,6 @@ class EbatNs_Environment
     
     /**
      * Fullpath to config-file
-     * @param string converter EbatNs_DataConverterIso () | EbatNs_DataConverterUtf8
      * @param string $converter Name of the converter class used, defaults to 'EbatNs_DataConverterUtf8' (use 'EbatNs_DataConverterIso' for convertion from uft8 to iso-8859-1)
      * @var string
      */
@@ -37,10 +36,10 @@ class EbatNs_Environment
     
     public function __construct($logLevel = 0, $configFile = 'config/ebay.config.php', $converter = 'EbatNs_DataConverterUtf8')
     {
-        $this->init($logLevel, $configFile);
+        $this->init($logLevel, $configFile, $converter);
     }
     
-    public function init($logLevel = 0, $configFile)
+    public function init($logLevel = 0, $configFile, $converter = 'EbatNs_DataConverterUtf8')
     {
         if ($logLevel >= 1)
             $this->logger = new EbatNs_Logger();
